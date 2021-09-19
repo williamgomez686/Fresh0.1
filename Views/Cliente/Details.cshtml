@@ -1,0 +1,154 @@
+﻿@model Fresh0._1.Models.cl_cliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cl_cliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.clinom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clinom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliapellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliapellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clidir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clidir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliemail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliemail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clitel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clitel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clicel1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clicel1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clicel2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clicel2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clidpi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clidpi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clinit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clinit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.clifchalt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.clifchalt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliusualt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliusualt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_cliente1.empcod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_cliente1.empcod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_cliente2.empcod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_cliente2.empcod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_empresa.enpnom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_empresa.enpnom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_estado.estdescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_estado.estdescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_geo_departamentos.depnom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_geo_departamentos.depnom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_geo_municipios.depcod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_geo_municipios.depcod)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.clicod }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

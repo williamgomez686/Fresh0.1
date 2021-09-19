@@ -1,0 +1,42 @@
+﻿@model Fresh0._1.Models.cl_geo_departamentos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cl_geo_departamentos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.depnom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depnom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.depest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.depusualt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.depusualt)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.depcod }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

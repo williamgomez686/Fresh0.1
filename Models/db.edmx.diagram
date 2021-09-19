@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1d5405a04d5f4857b0e6e0f52eaa2e21" Name="Diagram1">
+        <EntityTypeShape EntityType="dbfreshModel.cl_enfermedades" Width="1.5" PointX="5" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_geo_departamentos" Width="1.5" PointX="13.25" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_geo_municipios" Width="1.5" PointX="13.125" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_gestion_cab" Width="1.5" PointX="5.125" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_gestioncl_gestiondescrip" Width="1.5" PointX="3.125" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_preguntas" Width="1.5" PointX="3" PointY="0.5" IsExpanded="true" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_geo_municipios_cl_geo_departamentos" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_correlativos" Width="1.5" PointX="15.75" PointY="4.25" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_empresa" Width="1.5" PointX="7.875" PointY="0.5" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_estado" Width="1.5" PointX="7.875" PointY="3.375" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_correlativos_cl_estado" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_empresa_cl_estado" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_preguntas_cl_preguntas" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_gestion_cab_cl_gestion_cab" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip" />
+        <EntityTypeShape EntityType="dbfreshModel.cl_cliente" Width="1.5" PointX="10.75" PointY="0.625" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_cliente_cl_empresa" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_cliente_cl_estado" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_cliente_cl_geo_departamentos" />
+        <AssociationConnector Association="dbfreshModel.FK_cl_cliente_cl_geo_municipios" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

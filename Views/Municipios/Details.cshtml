@@ -1,0 +1,50 @@
+﻿@model Fresh0._1.Models.cl_geo_municipios
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>cl_geo_municipios</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mundescripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mundescripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.munest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.munest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.munusualt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.munusualt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cl_geo_departamentos.depnom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cl_geo_departamentos.depnom)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.muncod }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

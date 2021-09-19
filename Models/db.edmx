@@ -1,0 +1,757 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbfreshModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cl_cliente">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="clicod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="clinom" Type="varchar" MaxLength="100" />
+          <Property Name="cliapellido" Type="varchar" MaxLength="100" />
+          <Property Name="clidir" Type="varchar" MaxLength="100" />
+          <Property Name="cliemail" Type="varchar" MaxLength="50" />
+          <Property Name="clitel" Type="varchar" MaxLength="20" />
+          <Property Name="clicel1" Type="varchar" MaxLength="20" />
+          <Property Name="clicel2" Type="varchar" MaxLength="20" />
+          <Property Name="clidpi" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="clinit" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="clifchalt" Type="date" />
+          <Property Name="cliusualt" Type="char" MaxLength="5" />
+          <Property Name="id_depcod" Type="char" MaxLength="5" />
+          <Property Name="id_muncod" Type="char" MaxLength="5" />
+          <Property Name="cliest" Type="char" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="cl_correlativos">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="clitipo" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="clanio" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="clmes" Type="numeric" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="clcorrelativo" Type="numeric" Precision="8" Scale="0" />
+          <Property Name="clest" Type="char" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="cl_empresa">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="enpnom" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="fchalt" Type="date" />
+          <Property Name="usualt" Type="char" MaxLength="5" />
+          <Property Name="empest" Type="char" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="cl_enfermedades">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="enfcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="enfdescripcion" Type="varchar" MaxLength="200" />
+          <Property Name="enfest" Type="char" MaxLength="2" />
+          <Property Name="enffchalt" Type="date" />
+          <Property Name="enfusualt" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="cl_estado">
+          <Key>
+            <PropertyRef Name="estcod" />
+          </Key>
+          <Property Name="estcod" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="estdescripcion" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="cl_geo_departamentos">
+          <Key>
+            <PropertyRef Name="depcod" />
+          </Key>
+          <Property Name="depcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="depnom" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="depest" Type="char" MaxLength="2" />
+          <Property Name="depusualt" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="cl_geo_municipios">
+          <Key>
+            <PropertyRef Name="muncod" />
+          </Key>
+          <Property Name="depcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="muncod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="mundescripcion" Type="varchar" MaxLength="10" />
+          <Property Name="munest" Type="char" MaxLength="2" />
+          <Property Name="munusualt" Type="char" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="cl_gestion_cab">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="gescod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="clicod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="gesest" Type="char" MaxLength="2" />
+          <Property Name="gesfchalt" Type="date" />
+          <Property Name="gesusualt" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="cl_gestioncl_gestiondescrip">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="gescod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="clicod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="precod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="enfcod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="preres" Type="char" MaxLength="2" />
+          <Property Name="enfres" Type="char" MaxLength="2" />
+          <Property Name="preobs" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="cl_preguntas">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="precod" Type="char" MaxLength="20" Nullable="false" />
+          <Property Name="predescripcion" Type="varchar" MaxLength="200" />
+          <Property Name="preest" Type="char" MaxLength="2" />
+          <Property Name="prefchalt" Type="date" />
+          <Property Name="preusualt" Type="char" MaxLength="5" />
+        </EntityType>
+        <Association Name="FK_cl_cliente_cl_empresa">
+          <End Role="cl_empresa" Type="Self.cl_empresa" Multiplicity="1" />
+          <End Role="cl_cliente" Type="Self.cl_cliente" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_empresa">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_cliente_cl_estado">
+          <End Role="cl_estado" Type="Self.cl_estado" Multiplicity="0..1" />
+          <End Role="cl_cliente" Type="Self.cl_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_estado">
+              <PropertyRef Name="estcod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="cliest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_cliente_cl_geo_departamentos">
+          <End Role="cl_geo_departamentos" Type="Self.cl_geo_departamentos" Multiplicity="0..1" />
+          <End Role="cl_cliente" Type="Self.cl_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_geo_departamentos">
+              <PropertyRef Name="depcod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="id_depcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_cliente_cl_geo_municipios">
+          <End Role="cl_geo_municipios" Type="Self.cl_geo_municipios" Multiplicity="0..1" />
+          <End Role="cl_cliente" Type="Self.cl_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_geo_municipios">
+              <PropertyRef Name="muncod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="id_muncod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_correlativos_cl_estado">
+          <End Role="cl_estado" Type="Self.cl_estado" Multiplicity="0..1" />
+          <End Role="cl_correlativos" Type="Self.cl_correlativos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_estado">
+              <PropertyRef Name="estcod" />
+            </Principal>
+            <Dependent Role="cl_correlativos">
+              <PropertyRef Name="clest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_empresa_cl_estado">
+          <End Role="cl_estado" Type="Self.cl_estado" Multiplicity="0..1" />
+          <End Role="cl_empresa" Type="Self.cl_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_estado">
+              <PropertyRef Name="estcod" />
+            </Principal>
+            <Dependent Role="cl_empresa">
+              <PropertyRef Name="empest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_geo_municipios_cl_geo_departamentos">
+          <End Role="cl_geo_departamentos" Type="Self.cl_geo_departamentos" Multiplicity="1" />
+          <End Role="cl_geo_municipios" Type="Self.cl_geo_municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_geo_departamentos">
+              <PropertyRef Name="depcod" />
+            </Principal>
+            <Dependent Role="cl_geo_municipios">
+              <PropertyRef Name="depcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_gestion_cab_cl_gestion_cab">
+          <End Role="cl_gestion_cab" Type="Self.cl_gestion_cab" Multiplicity="1" />
+          <End Role="cl_gestion_cab1" Type="Self.cl_gestion_cab" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_gestion_cab">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_gestion_cab1">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip">
+          <End Role="cl_gestioncl_gestiondescrip" Type="Self.cl_gestioncl_gestiondescrip" Multiplicity="1" />
+          <End Role="cl_gestioncl_gestiondescrip1" Type="Self.cl_gestioncl_gestiondescrip" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_gestioncl_gestiondescrip">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_gestioncl_gestiondescrip1">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_preguntas_cl_preguntas">
+          <End Role="cl_preguntas" Type="Self.cl_preguntas" Multiplicity="1" />
+          <End Role="cl_preguntas1" Type="Self.cl_preguntas" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_preguntas">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_preguntas1">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbfreshModelStoreContainer">
+          <EntitySet Name="cl_cliente" EntityType="Self.cl_cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_correlativos" EntityType="Self.cl_correlativos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_empresa" EntityType="Self.cl_empresa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_enfermedades" EntityType="Self.cl_enfermedades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_estado" EntityType="Self.cl_estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_geo_departamentos" EntityType="Self.cl_geo_departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_geo_municipios" EntityType="Self.cl_geo_municipios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_gestion_cab" EntityType="Self.cl_gestion_cab" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_gestioncl_gestiondescrip" EntityType="Self.cl_gestioncl_gestiondescrip" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="cl_preguntas" EntityType="Self.cl_preguntas" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_cl_cliente_cl_empresa" Association="Self.FK_cl_cliente_cl_empresa">
+            <End Role="cl_empresa" EntitySet="cl_empresa" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_cliente_cl_estado" Association="Self.FK_cl_cliente_cl_estado">
+            <End Role="cl_estado" EntitySet="cl_estado" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_cliente_cl_geo_departamentos" Association="Self.FK_cl_cliente_cl_geo_departamentos">
+            <End Role="cl_geo_departamentos" EntitySet="cl_geo_departamentos" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_cliente_cl_geo_municipios" Association="Self.FK_cl_cliente_cl_geo_municipios">
+            <End Role="cl_geo_municipios" EntitySet="cl_geo_municipios" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_correlativos_cl_estado" Association="Self.FK_cl_correlativos_cl_estado">
+            <End Role="cl_estado" EntitySet="cl_estado" />
+            <End Role="cl_correlativos" EntitySet="cl_correlativos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_empresa_cl_estado" Association="Self.FK_cl_empresa_cl_estado">
+            <End Role="cl_estado" EntitySet="cl_estado" />
+            <End Role="cl_empresa" EntitySet="cl_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_geo_municipios_cl_geo_departamentos" Association="Self.FK_cl_geo_municipios_cl_geo_departamentos">
+            <End Role="cl_geo_departamentos" EntitySet="cl_geo_departamentos" />
+            <End Role="cl_geo_municipios" EntitySet="cl_geo_municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_gestion_cab_cl_gestion_cab" Association="Self.FK_cl_gestion_cab_cl_gestion_cab">
+            <End Role="cl_gestion_cab" EntitySet="cl_gestion_cab" />
+            <End Role="cl_gestion_cab1" EntitySet="cl_gestion_cab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip" Association="Self.FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip">
+            <End Role="cl_gestioncl_gestiondescrip" EntitySet="cl_gestioncl_gestiondescrip" />
+            <End Role="cl_gestioncl_gestiondescrip1" EntitySet="cl_gestioncl_gestiondescrip" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_preguntas_cl_preguntas" Association="Self.FK_cl_preguntas_cl_preguntas">
+            <End Role="cl_preguntas" EntitySet="cl_preguntas" />
+            <End Role="cl_preguntas1" EntitySet="cl_preguntas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbfreshModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cl_enfermedades">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="enfcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="enfdescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="enfest" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="enffchalt" Type="DateTime" Precision="0" />
+          <Property Name="enfusualt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="cl_geo_departamentos">
+          <Key>
+            <PropertyRef Name="depcod" />
+          </Key>
+          <Property Name="depcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="depnom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="depest" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="depusualt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cl_geo_municipios" Relationship="Self.FK_cl_geo_municipios_cl_geo_departamentos" FromRole="cl_geo_departamentos" ToRole="cl_geo_municipios" />
+          <NavigationProperty Name="cl_cliente" Relationship="dbfreshModel.FK_cl_cliente_cl_geo_departamentos" FromRole="cl_geo_departamentos" ToRole="cl_cliente" />
+        </EntityType>
+        <EntityType Name="cl_geo_municipios">
+          <Key>
+            <PropertyRef Name="muncod" />
+          </Key>
+          <Property Name="depcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="muncod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="mundescripcion" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="munest" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="munusualt" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cl_geo_departamentos" Relationship="Self.FK_cl_geo_municipios_cl_geo_departamentos" FromRole="cl_geo_municipios" ToRole="cl_geo_departamentos" />
+          <NavigationProperty Name="cl_cliente" Relationship="dbfreshModel.FK_cl_cliente_cl_geo_municipios" FromRole="cl_geo_municipios" ToRole="cl_cliente" />
+        </EntityType>
+        <EntityType Name="cl_gestion_cab">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="gescod" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="clicod" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="gesest" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="gesfchalt" Type="DateTime" Precision="0" />
+          <Property Name="gesusualt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cl_gestion_cab1" Relationship="dbfreshModel.FK_cl_gestion_cab_cl_gestion_cab" FromRole="cl_gestion_cab" ToRole="cl_gestion_cab1" />
+          <NavigationProperty Name="cl_gestion_cab2" Relationship="dbfreshModel.FK_cl_gestion_cab_cl_gestion_cab" FromRole="cl_gestion_cab1" ToRole="cl_gestion_cab" />
+        </EntityType>
+        <EntityType Name="cl_gestioncl_gestiondescrip">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="gescod" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="clicod" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="precod" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="enfcod" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="preres" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="enfres" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="preobs" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cl_gestioncl_gestiondescrip1" Relationship="dbfreshModel.FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip" FromRole="cl_gestioncl_gestiondescrip" ToRole="cl_gestioncl_gestiondescrip1" />
+          <NavigationProperty Name="cl_gestioncl_gestiondescrip2" Relationship="dbfreshModel.FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip" FromRole="cl_gestioncl_gestiondescrip1" ToRole="cl_gestioncl_gestiondescrip" />
+        </EntityType>
+        <EntityType Name="cl_preguntas">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="precod" Type="String" MaxLength="20" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="predescripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="preest" Type="String" MaxLength="2" FixedLength="true" Unicode="false" />
+          <Property Name="prefchalt" Type="DateTime" Precision="0" />
+          <Property Name="preusualt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cl_preguntas1" Relationship="dbfreshModel.FK_cl_preguntas_cl_preguntas" FromRole="cl_preguntas" ToRole="cl_preguntas1" />
+          <NavigationProperty Name="cl_preguntas2" Relationship="dbfreshModel.FK_cl_preguntas_cl_preguntas" FromRole="cl_preguntas1" ToRole="cl_preguntas" />
+        </EntityType>
+        <Association Name="FK_cl_geo_municipios_cl_geo_departamentos">
+          <End Role="cl_geo_departamentos" Type="Self.cl_geo_departamentos" Multiplicity="1" />
+          <End Role="cl_geo_municipios" Type="Self.cl_geo_municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_geo_departamentos">
+              <PropertyRef Name="depcod" />
+            </Principal>
+            <Dependent Role="cl_geo_municipios">
+              <PropertyRef Name="depcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbfreshEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cl_enfermedades" EntityType="Self.cl_enfermedades" />
+          <EntitySet Name="cl_geo_departamentos" EntityType="Self.cl_geo_departamentos" />
+          <EntitySet Name="cl_geo_municipios" EntityType="Self.cl_geo_municipios" />
+          <EntitySet Name="cl_gestion_cab" EntityType="Self.cl_gestion_cab" />
+          <EntitySet Name="cl_gestioncl_gestiondescrip" EntityType="Self.cl_gestioncl_gestiondescrip" />
+          <EntitySet Name="cl_preguntas" EntityType="Self.cl_preguntas" />
+          <AssociationSet Name="FK_cl_geo_municipios_cl_geo_departamentos" Association="Self.FK_cl_geo_municipios_cl_geo_departamentos">
+            <End Role="cl_geo_departamentos" EntitySet="cl_geo_departamentos" />
+            <End Role="cl_geo_municipios" EntitySet="cl_geo_municipios" />
+          </AssociationSet>
+          <EntitySet Name="cl_correlativos" EntityType="dbfreshModel.cl_correlativos" />
+          <EntitySet Name="cl_empresa" EntityType="dbfreshModel.cl_empresa" />
+          <EntitySet Name="cl_estado" EntityType="dbfreshModel.cl_estado" />
+          <AssociationSet Name="FK_cl_correlativos_cl_estado" Association="dbfreshModel.FK_cl_correlativos_cl_estado">
+            <End Role="cl_estado" EntitySet="cl_estado" />
+            <End Role="cl_correlativos" EntitySet="cl_correlativos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_empresa_cl_estado" Association="dbfreshModel.FK_cl_empresa_cl_estado">
+            <End Role="cl_estado" EntitySet="cl_estado" />
+            <End Role="cl_empresa" EntitySet="cl_empresa" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_preguntas_cl_preguntas" Association="dbfreshModel.FK_cl_preguntas_cl_preguntas">
+            <End Role="cl_preguntas" EntitySet="cl_preguntas" />
+            <End Role="cl_preguntas1" EntitySet="cl_preguntas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_gestion_cab_cl_gestion_cab" Association="dbfreshModel.FK_cl_gestion_cab_cl_gestion_cab">
+            <End Role="cl_gestion_cab" EntitySet="cl_gestion_cab" />
+            <End Role="cl_gestion_cab1" EntitySet="cl_gestion_cab" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip" Association="dbfreshModel.FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip">
+            <End Role="cl_gestioncl_gestiondescrip" EntitySet="cl_gestioncl_gestiondescrip" />
+            <End Role="cl_gestioncl_gestiondescrip1" EntitySet="cl_gestioncl_gestiondescrip" />
+          </AssociationSet>
+          <EntitySet Name="cl_cliente" EntityType="dbfreshModel.cl_cliente" />
+          <AssociationSet Name="FK_cl_cliente_cl_empresa" Association="dbfreshModel.FK_cl_cliente_cl_empresa">
+            <End Role="cl_empresa" EntitySet="cl_empresa" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_cliente_cl_estado" Association="dbfreshModel.FK_cl_cliente_cl_estado">
+            <End Role="cl_estado" EntitySet="cl_estado" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_cliente_cl_geo_departamentos" Association="dbfreshModel.FK_cl_cliente_cl_geo_departamentos">
+            <End Role="cl_geo_departamentos" EntitySet="cl_geo_departamentos" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_cl_cliente_cl_geo_municipios" Association="dbfreshModel.FK_cl_cliente_cl_geo_municipios">
+            <End Role="cl_geo_municipios" EntitySet="cl_geo_municipios" />
+            <End Role="cl_cliente" EntitySet="cl_cliente" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="cl_correlativos">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="clitipo" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="clanio" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="clmes" Type="Decimal" Nullable="false" Precision="2" Scale="0" />
+          <Property Name="clcorrelativo" Type="Decimal" Precision="8" Scale="0" />
+          <Property Name="clest" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cl_estado" Relationship="dbfreshModel.FK_cl_correlativos_cl_estado" FromRole="cl_correlativos" ToRole="cl_estado" />
+        </EntityType>
+        <EntityType Name="cl_empresa">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="enpnom" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="fchalt" Type="DateTime" Precision="0" />
+          <Property Name="usualt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="empest" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cl_estado" Relationship="dbfreshModel.FK_cl_empresa_cl_estado" FromRole="cl_empresa" ToRole="cl_estado" />
+          <NavigationProperty Name="cl_cliente" Relationship="dbfreshModel.FK_cl_cliente_cl_empresa" FromRole="cl_empresa" ToRole="cl_cliente" />
+        </EntityType>
+        <EntityType Name="cl_estado">
+          <Key>
+            <PropertyRef Name="estcod" />
+          </Key>
+          <Property Name="estcod" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="estdescripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="cl_correlativos" Relationship="dbfreshModel.FK_cl_correlativos_cl_estado" FromRole="cl_estado" ToRole="cl_correlativos" />
+          <NavigationProperty Name="cl_empresa" Relationship="dbfreshModel.FK_cl_empresa_cl_estado" FromRole="cl_estado" ToRole="cl_empresa" />
+          <NavigationProperty Name="cl_cliente" Relationship="dbfreshModel.FK_cl_cliente_cl_estado" FromRole="cl_estado" ToRole="cl_cliente" />
+        </EntityType>
+        <Association Name="FK_cl_correlativos_cl_estado">
+          <End Type="dbfreshModel.cl_estado" Role="cl_estado" Multiplicity="0..1" />
+          <End Type="dbfreshModel.cl_correlativos" Role="cl_correlativos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_estado">
+              <PropertyRef Name="estcod" />
+            </Principal>
+            <Dependent Role="cl_correlativos">
+              <PropertyRef Name="clest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_empresa_cl_estado">
+          <End Type="dbfreshModel.cl_estado" Role="cl_estado" Multiplicity="0..1" />
+          <End Type="dbfreshModel.cl_empresa" Role="cl_empresa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_estado">
+              <PropertyRef Name="estcod" />
+            </Principal>
+            <Dependent Role="cl_empresa">
+              <PropertyRef Name="empest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_preguntas_cl_preguntas">
+          <End Type="dbfreshModel.cl_preguntas" Role="cl_preguntas" Multiplicity="1" />
+          <End Type="dbfreshModel.cl_preguntas" Role="cl_preguntas1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_preguntas">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_preguntas1">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_gestion_cab_cl_gestion_cab">
+          <End Type="dbfreshModel.cl_gestion_cab" Role="cl_gestion_cab" Multiplicity="1" />
+          <End Type="dbfreshModel.cl_gestion_cab" Role="cl_gestion_cab1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_gestion_cab">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_gestion_cab1">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_gestioncl_gestiondescrip_cl_gestioncl_gestiondescrip">
+          <End Type="dbfreshModel.cl_gestioncl_gestiondescrip" Role="cl_gestioncl_gestiondescrip" Multiplicity="1" />
+          <End Type="dbfreshModel.cl_gestioncl_gestiondescrip" Role="cl_gestioncl_gestiondescrip1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_gestioncl_gestiondescrip">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_gestioncl_gestiondescrip1">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="cl_cliente">
+          <Key>
+            <PropertyRef Name="empcod" />
+          </Key>
+          <Property Name="empcod" Type="String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="clicod" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="false" />
+          <Property Name="clinom" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cliapellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="clidir" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="cliemail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="clitel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="clicel1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="clicel2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="clidpi" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="clinit" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="clifchalt" Type="DateTime" Precision="0" />
+          <Property Name="cliusualt" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="id_depcod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="id_muncod" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="cliest" Type="String" MaxLength="3" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="cl_empresa" Relationship="dbfreshModel.FK_cl_cliente_cl_empresa" FromRole="cl_cliente" ToRole="cl_empresa" />
+          <NavigationProperty Name="cl_estado" Relationship="dbfreshModel.FK_cl_cliente_cl_estado" FromRole="cl_cliente" ToRole="cl_estado" />
+          <NavigationProperty Name="cl_geo_departamentos" Relationship="dbfreshModel.FK_cl_cliente_cl_geo_departamentos" FromRole="cl_cliente" ToRole="cl_geo_departamentos" />
+          <NavigationProperty Name="cl_geo_municipios" Relationship="dbfreshModel.FK_cl_cliente_cl_geo_municipios" FromRole="cl_cliente" ToRole="cl_geo_municipios" />
+        </EntityType>
+        <Association Name="FK_cl_cliente_cl_empresa">
+          <End Type="dbfreshModel.cl_empresa" Role="cl_empresa" Multiplicity="1" />
+          <End Type="dbfreshModel.cl_cliente" Role="cl_cliente" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="cl_empresa">
+              <PropertyRef Name="empcod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="empcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_cliente_cl_estado">
+          <End Type="dbfreshModel.cl_estado" Role="cl_estado" Multiplicity="0..1" />
+          <End Type="dbfreshModel.cl_cliente" Role="cl_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_estado">
+              <PropertyRef Name="estcod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="cliest" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_cliente_cl_geo_departamentos">
+          <End Type="dbfreshModel.cl_geo_departamentos" Role="cl_geo_departamentos" Multiplicity="0..1" />
+          <End Type="dbfreshModel.cl_cliente" Role="cl_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_geo_departamentos">
+              <PropertyRef Name="depcod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="id_depcod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_cl_cliente_cl_geo_municipios">
+          <End Type="dbfreshModel.cl_geo_municipios" Role="cl_geo_municipios" Multiplicity="0..1" />
+          <End Type="dbfreshModel.cl_cliente" Role="cl_cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cl_geo_municipios">
+              <PropertyRef Name="muncod" />
+            </Principal>
+            <Dependent Role="cl_cliente">
+              <PropertyRef Name="id_muncod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbfreshModelStoreContainer" CdmEntityContainer="dbfreshEntities">
+          <EntitySetMapping Name="cl_enfermedades">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_enfermedades">
+              <MappingFragment StoreEntitySet="cl_enfermedades">
+                <ScalarProperty Name="empcod" ColumnName="empcod" />
+                <ScalarProperty Name="enfcod" ColumnName="enfcod" />
+                <ScalarProperty Name="enfdescripcion" ColumnName="enfdescripcion" />
+                <ScalarProperty Name="enfest" ColumnName="enfest" />
+                <ScalarProperty Name="enffchalt" ColumnName="enffchalt" />
+                <ScalarProperty Name="enfusualt" ColumnName="enfusualt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_geo_departamentos">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_geo_departamentos">
+              <MappingFragment StoreEntitySet="cl_geo_departamentos">
+                <ScalarProperty Name="depcod" ColumnName="depcod" />
+                <ScalarProperty Name="depnom" ColumnName="depnom" />
+                <ScalarProperty Name="depest" ColumnName="depest" />
+                <ScalarProperty Name="depusualt" ColumnName="depusualt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_geo_municipios">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_geo_municipios">
+              <MappingFragment StoreEntitySet="cl_geo_municipios">
+                <ScalarProperty Name="depcod" ColumnName="depcod" />
+                <ScalarProperty Name="muncod" ColumnName="muncod" />
+                <ScalarProperty Name="mundescripcion" ColumnName="mundescripcion" />
+                <ScalarProperty Name="munest" ColumnName="munest" />
+                <ScalarProperty Name="munusualt" ColumnName="munusualt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_gestion_cab">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_gestion_cab">
+              <MappingFragment StoreEntitySet="cl_gestion_cab">
+                <ScalarProperty Name="empcod" ColumnName="empcod" />
+                <ScalarProperty Name="gescod" ColumnName="gescod" />
+                <ScalarProperty Name="clicod" ColumnName="clicod" />
+                <ScalarProperty Name="gesest" ColumnName="gesest" />
+                <ScalarProperty Name="gesfchalt" ColumnName="gesfchalt" />
+                <ScalarProperty Name="gesusualt" ColumnName="gesusualt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_gestioncl_gestiondescrip">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_gestioncl_gestiondescrip">
+              <MappingFragment StoreEntitySet="cl_gestioncl_gestiondescrip">
+                <ScalarProperty Name="empcod" ColumnName="empcod" />
+                <ScalarProperty Name="gescod" ColumnName="gescod" />
+                <ScalarProperty Name="clicod" ColumnName="clicod" />
+                <ScalarProperty Name="precod" ColumnName="precod" />
+                <ScalarProperty Name="enfcod" ColumnName="enfcod" />
+                <ScalarProperty Name="preres" ColumnName="preres" />
+                <ScalarProperty Name="enfres" ColumnName="enfres" />
+                <ScalarProperty Name="preobs" ColumnName="preobs" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_preguntas">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_preguntas">
+              <MappingFragment StoreEntitySet="cl_preguntas">
+                <ScalarProperty Name="empcod" ColumnName="empcod" />
+                <ScalarProperty Name="precod" ColumnName="precod" />
+                <ScalarProperty Name="predescripcion" ColumnName="predescripcion" />
+                <ScalarProperty Name="preest" ColumnName="preest" />
+                <ScalarProperty Name="prefchalt" ColumnName="prefchalt" />
+                <ScalarProperty Name="preusualt" ColumnName="preusualt" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_correlativos">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_correlativos">
+              <MappingFragment StoreEntitySet="cl_correlativos">
+                <ScalarProperty Name="clest" ColumnName="clest" />
+                <ScalarProperty Name="clcorrelativo" ColumnName="clcorrelativo" />
+                <ScalarProperty Name="clmes" ColumnName="clmes" />
+                <ScalarProperty Name="clanio" ColumnName="clanio" />
+                <ScalarProperty Name="clitipo" ColumnName="clitipo" />
+                <ScalarProperty Name="empcod" ColumnName="empcod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_empresa">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_empresa">
+              <MappingFragment StoreEntitySet="cl_empresa">
+                <ScalarProperty Name="empest" ColumnName="empest" />
+                <ScalarProperty Name="usualt" ColumnName="usualt" />
+                <ScalarProperty Name="fchalt" ColumnName="fchalt" />
+                <ScalarProperty Name="enpnom" ColumnName="enpnom" />
+                <ScalarProperty Name="empcod" ColumnName="empcod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_estado">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_estado">
+              <MappingFragment StoreEntitySet="cl_estado">
+                <ScalarProperty Name="estdescripcion" ColumnName="estdescripcion" />
+                <ScalarProperty Name="estcod" ColumnName="estcod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="cl_cliente">
+            <EntityTypeMapping TypeName="dbfreshModel.cl_cliente">
+              <MappingFragment StoreEntitySet="cl_cliente">
+                <ScalarProperty Name="cliest" ColumnName="cliest" />
+                <ScalarProperty Name="id_muncod" ColumnName="id_muncod" />
+                <ScalarProperty Name="id_depcod" ColumnName="id_depcod" />
+                <ScalarProperty Name="cliusualt" ColumnName="cliusualt" />
+                <ScalarProperty Name="clifchalt" ColumnName="clifchalt" />
+                <ScalarProperty Name="clinit" ColumnName="clinit" />
+                <ScalarProperty Name="clidpi" ColumnName="clidpi" />
+                <ScalarProperty Name="clicel2" ColumnName="clicel2" />
+                <ScalarProperty Name="clicel1" ColumnName="clicel1" />
+                <ScalarProperty Name="clitel" ColumnName="clitel" />
+                <ScalarProperty Name="cliemail" ColumnName="cliemail" />
+                <ScalarProperty Name="clidir" ColumnName="clidir" />
+                <ScalarProperty Name="cliapellido" ColumnName="cliapellido" />
+                <ScalarProperty Name="clinom" ColumnName="clinom" />
+                <ScalarProperty Name="clicod" ColumnName="clicod" />
+                <ScalarProperty Name="empcod" ColumnName="empcod" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

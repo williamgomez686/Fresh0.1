@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Fresh0._1.Models.cl_geo_municipios>
+
+@{
+    ViewBag.Title = "Municipios";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.mundescripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.munest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.munusualt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cl_geo_departamentos.depnom)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.mundescripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.munest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.munusualt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cl_geo_departamentos.depnom)
+        </td>
+        <td>
+            <a class="btn btn-success" href="~/Municipios/Edit/@item.muncod">Editar</a> |
+            <a class="btn btn-primary" href="~/Municipios/Details/@item.muncod">Detalles</a> |
+            <a class="btn btn-danger" href="~/Municipios/Delete/@item.muncod">Borrar</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+<div class="row">
+    <div class="col-md-6 col-md-3">
+        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/Municipios/Create")'" value="Agregar nuevo" />
+    </div>
+</div>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Fresh0._1.Models.cl_geo_departamentos>
+
+@{
+    ViewBag.Title = "Departamentos";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+<br />
+
+<div class="jumbotron"> 
+<table class="table table table-bordered">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Estado
+        </th>
+        <th>
+            Usuario de alta
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.depnom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.depest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.depusualt)
+            </td>
+            <td>
+                <a class="btn btn-success" href="~/Departamentos/Edit/@item.depcod">Editar</a> |
+                <a class="btn btn-primary" href="~/Departamentos/Details/@item.depcod">Detalles</a> |
+                <a class="btn btn-danger" href="~/Departamentos/Delete/@item.depcod">Borrar</a>
+
+            </td>
+        </tr>
+    }
+
+</table>
+</div>  
+
+<div class="row">
+    <div class="col-md-6 col-md-3">
+        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/Departamentos/Create")'" value="Agregar nuevo" />
+    </div>
+</div>
+
+
+
+
