@@ -2,13 +2,13 @@
 
 @{
     ViewBag.Title = "Pacientes";
+    Layout = "~/Views/Shared/_Test_Layout.cshtml";
+
 }
 
 <h2>@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+
 <table class="table table-bordered">
     <tr>
         <th>Nombres</th>
@@ -22,7 +22,7 @@
         <th>NIT.</th>
         <th>Alta</th>
         <th>Usuario</th>
-        
+
         <th>Empresa</th>
         <th>Estato</th>
         <th>Departamento</th>
@@ -30,64 +30,68 @@
         <th>Acciones</th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.clinom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cliapellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clidir)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cliemail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clitel)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clicel1)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clicel2)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clidpi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clinit)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.clifchalt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cliusualt)
-        </td>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.clinom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliapellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clidir)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliemail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clitel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clicel1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clicel2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clidpi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clinit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.clifchalt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cliusualt)
+            </td>
 
-        <td>
-            @Html.DisplayFor(modelItem => item.cl_empresa.enpnom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cl_estado.estdescripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cl_geo_departamentos.depnom)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cl_geo_municipios.depcod)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.clicod }) |
-            @Html.ActionLink("Details", "Details", new { id = item.clicod }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.clicod })
-
-            <a class="btn btn-success" href="~/Cliente/Edit/@item.clicod">Editar</a> |
-            <a class="btn btn-primary" href="~/Cliente/Details/@item.clicod">Detalles</a> |
-            <a class="btn btn-danger" href="~/Cliente/Delete/@item.clicod">Borrar</a>
-        </td>
-    </tr>
-}
+            <td>
+                @Html.DisplayFor(modelItem => item.cl_empresa.enpnom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cl_estado.estdescripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cl_geo_departamentos.depnom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cl_geo_municipios.depcod)
+            </td>
+            <td>
+                <a class="btn btn-success" href="~/Cliente/Edit/@item.clicod">Editar</a> |
+                <a class="btn btn-primary" href="~/Cliente/Details/@item.clicod">Detalles</a> |
+                <a class="btn btn-danger" href="~/Cliente/Delete/@item.clicod">Borrar</a>
+            </td>
+        </tr>
+    }
 
 </table>
+
+<div class="row">
+    <div class="col-md-6 col-md-3">
+        <input type="button" class="btn btn-primary" onclick="document.location.href='@Url.Content("~/Clinete/Create")'" value="Agregar nuevo" />
+    </div>
+</div>
+
